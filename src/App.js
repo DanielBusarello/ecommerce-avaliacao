@@ -10,6 +10,7 @@ import ProductScreen from './screens/ProductScreen';
 import ProductManagement from './screens/ProductManagement';
 import AboutScreen from './screens/AboutScreen';
 import ContactScreen from './screens/ContactScreen';
+import EditProfileScreen from "./screens/EditProfileScreen";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/criarproduto/:id" exact component={ProductManagement} />
             <Route path="/sobre" exact component={AboutScreen} />
             <Route path="/contato" exact component={ContactScreen} />
+            <Route path="/profile" exact component={EditProfileScreen} />
           </Switch>
         <Footer />
       </Router>
