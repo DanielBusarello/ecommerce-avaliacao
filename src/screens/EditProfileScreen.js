@@ -1,5 +1,6 @@
-import { useHistory } from "react-router-dom"
-import './EditProfileScreen.scss'
+import React from 'react';
+import { useHistory } from "react-router-dom";
+import './EditProfileScreen.scss';
 
 export default function EditProfileScreen(props) {
     const history = useHistory()
@@ -45,12 +46,10 @@ export default function EditProfileScreen(props) {
                         <input type="radio" id="other" name="gender" value="other"/>
                         <label htmlFor="other">Outro</label>
                     </li>
-
                     <li className="inline-label">
                         <input type="checkbox" id="notify" name="notify" value="Bike"/>
                         <label htmlFor="notify">Desejo receber notificações de novas promoções</label>
                     </li>
-
                     <li>
                         <button type="submit" onClick={navigateBack}>Salvar</button>
                     </li>

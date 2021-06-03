@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import Cookie from 'js-cookie';
 
 import {AiFillDelete, AiFillEdit, AiFillPlusCircle} from 'react-icons/ai';
 
@@ -22,6 +23,15 @@ function ProductScreen() {
         deleteProduct(id);
     }
 
+    const [showCRUD, setShowCRUD] = useState(false);
+
+    useEffect(() => {
+        Cookie.get('login') ? setShowCRUD(true) : setShowCRUD(false);
+        return () => {
+            
+        }
+    }, [])
+
     return (
         <div className="product-screen-content">
             <section className="products">
@@ -36,10 +46,16 @@ function ProductScreen() {
                                         <h1>{product.name}</h1>
                                         <h3>{product.description}</h3>
                                         <h5>R$ {product.price}</h5>
-                                        <ul className="product-btns">
-                                            <li><Link to={"/criarproduto/" + product.id}><AiFillEdit className="product-btn"/></Link></li>
-                                            <li><AiFillDelete className="product-btn" onClick={() => handleId(product.id)}/></li>
-                                        </ul>
+                                        {
+                                            showCRUD
+                                            ? <ul className="product-btns">
+                                                <li><Link to={"/criarproduto/" + product.id}><AiFillEdit className="product-btn"/></Link></li>
+                                                <li><AiFillDelete className="product-btn" onClick={() => handleId(product.id)}/></li>
+                                            </ul> 
+                                            :
+                                            <>
+                                            </>
+                                        }
                                     </div>
                                 </div>
                             </li>

@@ -2,9 +2,11 @@ import React from 'react'
 
 import { AiOutlinePhone, AiOutlineMail, AiOutlineWhatsApp } from 'react-icons/ai';
 
-import HeroSection from '../components/HeroSection/HesoSection';
+import './HomeScreen.scss';
+
+import HeroSection from '../components/HeroSection/HeroSection';
 import InfoSection from '../components/InfoSection/InfoSection';
-import ProductCard from '../components/ProdcutCard/ProductCard';
+import ProductCard from '../components/ProductCard/ProductCard';
 
 function HomeScreen() {
     return (

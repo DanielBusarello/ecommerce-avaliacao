@@ -4,6 +4,7 @@
     align-items: center;
     height: 100%;  
     margin: 3rem;
+
 }
 
 .signIn-form {
@@ -11,8 +12,8 @@
     flex-direction: column;
     width: 24rem;
     padding: 2rem;
-    background-color: rgba(255, 255, 255, .7);
-    border: .1rem solid rgba(255, 255, 255, .7);
+    // background-color: rgb(226, 226, 226);
+    border: .1rem solid rgb(243, 243, 243);
     border-radius: .5rem;
 
     li {
@@ -52,7 +53,7 @@
         outline: none;
         cursor: pointer;
 
-        height: 2rem;
+        height: 3rem;
         color: var(--color-font-light);
         font-size: 1.2rem;
 

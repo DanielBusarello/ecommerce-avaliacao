@@ -81,7 +81,7 @@ function ProductManagement() {
     }
 
     return (
-        <>
+        <div>
             <button className="back-to-products-btn"><Link to="/produtos"><AiOutlineArrowLeft/></Link></button>
             <div className="product-management-content">
                 <img {...register("image_popup")} src={_id !== undefined ? findProduct(_id).image : url} alt="Produto" />
@@ -105,7 +105,7 @@ function ProductManagement() {
                     <input type="submit" className="btn-submit"/>
                 </form>
             </div>
-        </>
+        </div>
     )
 }
 
