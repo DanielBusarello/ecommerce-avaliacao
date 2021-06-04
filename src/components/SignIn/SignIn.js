@@ -34,13 +34,13 @@ export default function SignIn(props) {
                         <label htmlFor="email">
                             Email
                         </label>
-                        <input type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}></input>
+                        <input required type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
                     </li>
                     <li>
                         <label htmlFor="password">
                             Senha
                         </label>
-                        <input type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}></input>
+                        <input required type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
                     </li>
                     <li>
                         <button type="submit" onClick={authHandler}>Login</button>
