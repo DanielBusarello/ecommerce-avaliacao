@@ -37,16 +37,24 @@ export default function SignIn(props) {
                         <input required type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
                     </li>
                     <li>
+                        <Link to="/login_recovery">Esqueci meu login</Link>
+                    </li>
+
+                    <li>
                         <label htmlFor="password">
                             Senha
                         </label>
                         <input required type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
                     </li>
                     <li>
+                        <Link to="/password_recovery">Esqueci minha senha</Link>
+                    </li>
+
+                    <li>
                         <button type="submit" onClick={authHandler}>Login</button>
                     </li>
                     <li>
-                        <Link to="/signup">Criar sua conta</Link>
+                        <Link id="signup-button" to="/signup">Criar sua conta</Link>
                     </li>
                 </ul>
             </form>
