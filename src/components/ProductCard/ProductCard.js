@@ -4,7 +4,7 @@ import './ProductCard.scss';
 
 function ProductCard(props) {
     return (
-        <li className="product" key={props.id}>
+        <div className="product" key={props.id}>
             <img alt="Produto" src={props.image}/>
             <div className="product-content">
                 <div className="product-info">
@@ -13,7 +13,7 @@ function ProductCard(props) {
                     <h5>R$ {props.price}</h5>
                 </div>
             </div>
-        </li>
+        </div>
     )
 }
 

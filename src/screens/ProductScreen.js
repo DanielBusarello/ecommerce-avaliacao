@@ -35,7 +35,7 @@ function ProductScreen() {
     return (
         <div className="product-screen-content">
             <section className="products">
-                <Link to="/criarproduto"><AiFillPlusCircle className="add-product-btn"/></Link>
+                {showCRUD && <Link to="/criarproduto"><AiFillPlusCircle className="add-product-btn"/></Link>}
                 <ul>
                     {
                         getProducts().map(product =>

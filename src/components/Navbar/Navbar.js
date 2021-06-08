@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AiOutlineUser, AiOutlineClose } from 'react-icons/ai';
@@ -10,7 +10,23 @@ import Cookie from 'js-cookie';
 const Navbar = () => {
     const  [click, setClick] = useState(false);
 
+    const [username, setUsername] = useState('');
+
+    useEffect(() => {
+        if (Cookie.get('login')) {
+            setUsername(Cookie.getJSON('login').username.split(" ")[0])
+        }
+        return () => {
+            
+        }
+    }, [])
+
     const handleClick = () => setClick(!click);
+
+    const handleLoggout = () => {
+        Cookie.remove('login');
+        Cookie.remove('userData');
+    }
 
     return (
         <nav className="navbar-header">
@@ -37,7 +53,10 @@ const Navbar = () => {
                     </ul>
                 </li>
                 <li className="user">
-                    <AiOutlineUser className="user-image" onClick={handleClick}/>
+                    <div>
+                        {username ? <h2>Bem-vindo, {username}</h2> : ""}
+                        <AiOutlineUser className="user-image" onClick={handleClick}/>
+                    </div>
                     <ul className={click ? "link-menu active" : "link-menu"}>
                         <li>
                             <button className="close-btn" onClick={handleClick}><AiOutlineClose/></button>
@@ -51,7 +70,7 @@ const Navbar = () => {
                         <li>
                             { 
                                 Cookie.get('login') 
-                                ? <a href="/" onClick={() => Cookie.remove('login')}>Logout</a> 
+                                ? <a href="/" onClick={handleLoggout}>Logout</a> 
                                 : <a href="/login">Login</a> 
                             } 
                         </li>

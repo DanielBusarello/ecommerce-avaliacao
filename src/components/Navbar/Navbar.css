@@ -9,7 +9,7 @@
 
 .navbar-header ul {
     display: flex;
-    height: 12vh;
+    height: 4rem;
     align-items: center;
     justify-content: space-between;
     margin: 0;
@@ -61,6 +61,18 @@
 
 /* User Section - Icon */
 
+.user div {
+    display: flex;
+    align-items: center;
+
+}
+
+.user div h2 {
+    margin-right: .5rem;
+    font-size: 1rem;
+    color: var(--color-font-primary);
+}
+
 .user ul {
     position: absolute;
     flex-direction: column;
@@ -68,7 +80,7 @@
     justify-content: center;
     
     width: 12vw;
-    height: 150%;
+    height: calc(100% * 2.5);
 }
 
 .user-image {
@@ -88,7 +100,7 @@
     margin: 0;
     
     right: 10px;
-    top: -200%;
+    top: calc(-100% * 3);
     z-index: 1;    
 
     transition: all .3s ease;
@@ -99,7 +111,7 @@
 
 .link-menu.active {
     transition: all .3s ease;
-    top: 13vh;
+    top: 5rem;
 }
 
 .link-menu a {

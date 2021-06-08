@@ -5,6 +5,7 @@ import Cookie from 'js-cookie';
 import './SignIn.scss';
 
 export default function SignIn(props) {
+    const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
@@ -14,7 +15,7 @@ export default function SignIn(props) {
     }
 
     const authHandler = () => {
-        Cookie.set('login', {'email': email, 'password': password});
+        Cookie.set('login', { 'username': username, 'email': email, 'password': password });
     }
 
     useEffect(() => {
@@ -29,6 +30,12 @@ export default function SignIn(props) {
                 <ul className="signIn-form">
                     <li>
                         <h2>Login</h2>
+                    </li>
+                    <li>
+                        <label htmlFor="name">
+                            Nome
+                        </label>
+                        <input required type="name" name="name" id="name" onChange={(e) => setUsername(e.target.value)}/>
                     </li>
                     <li>
                         <label htmlFor="email">
