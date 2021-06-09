@@ -22,7 +22,7 @@ export default function App() {
         <Route path="/criarproduto/:id" exact component={ProductManagement} />
         <Route path="/sobre" exact component={AboutScreen} />
         <Route path="/contato" exact component={ContactScreen} />
-        <Route path="/profile" exact component={EditProfileScreen} />
+        <Route exact path="/profile" component={EditProfileScreen} />
         <Route path="/login" exact component={SignIn} />
       </Switch>
       <Footer />

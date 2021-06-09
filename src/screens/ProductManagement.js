@@ -36,7 +36,7 @@ function ProductManagement() {
             editProduct(
                 {
                     name: name,
-                    image: image,
+                    image: url,
                     description: description,
                     price: price,
                 },
@@ -76,8 +76,8 @@ function ProductManagement() {
 
     fetchProductData();
 
-    const setImageUrl = (url) => {
-        setUrl(url);
+    const setImageUrl = (e) => {
+        setUrl(e);
     }
 
     return (
@@ -100,7 +100,7 @@ function ProductManagement() {
                     </label>
                     <label>
                         <h3>Imagem:</h3>
-                        <input type="text" {...register("image")} placeholder="Imagem" required={true} onChange={e => setImageUrl(e.target.value)}/>
+                        <input type="text" placeholder="Imagem" required={true} onChange={(e) => setImageUrl(e.target.value)}/>
                     </label>
                     <input type="submit" className="btn-submit"/>
                 </form>

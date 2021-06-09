@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useHistory } from "react-router-dom";
 import Cookie from 'js-cookie';
 import './EditProfileScreen.scss';
 
-export default function EditProfileScreen(props) {
+export default function EditProfileScreen() {
     const history = useHistory()
     
     const [name, setName] = useState("");
@@ -26,36 +26,53 @@ export default function EditProfileScreen(props) {
         history.push('/');
     }
 
+    useEffect(() => {
+        const data = Cookie.getJSON('userData');
+        if (data) {
+            setName(data.name);
+            setEmail(data.email);
+            setBirthdate(data.birthdate);
+            setPhone(data.phone);
+            setGender(data.gender);
+            setNotification(data.notification);
+        }
+        return () => {
+            
+        }
+    }, [])
+
     return (
         <div className="signUp-container">
-            <section className="user-info">
-                <ul>
-                    <li>
-                        <h2>Informações do usuário</h2>
-                    </li>
-                    <li>
-                        <h5>Nome</h5>
-                        <h3>{Cookie.getJSON('userData').name}</h3>
-                    </li>
-                    <li>
-                        <h5>Email</h5>
-                        <h3>{Cookie.getJSON('userData').email}</h3>
-                    </li>
-                    <li>
-                        <h5>Data de nascimento</h5>
-                        <h3>{Cookie.getJSON('userData').birthdate}</h3>
-                    </li>
-                    <li>
-                        <h5>Fone</h5>
-                        <h3>{Cookie.getJSON('userData').phone}</h3>
-                    </li>
-                    <li>
-                        <h5>Gênero</h5>
-                        <h3>{Cookie.getJSON('userData').gender === 'male' ? 'Masculino' : Cookie.getJSON('userData').gender === 'female' ? 'Feminino' : 'Outro'}</h3>
-                    </li>
-                   
-                </ul>
-            </section>
+            {Cookie.getJSON('userData') ? 
+                <section className="user-info">
+                    <ul>
+                        <li>
+                            <h2>Informações do usuário</h2>
+                        </li>
+                        <li>
+                            <h5>Nome</h5>
+                            <h3>{Cookie.getJSON('userData').name}</h3>
+                        </li>
+                        <li>
+                            <h5>Email</h5>
+                            <h3>{Cookie.getJSON('userData').email}</h3>
+                        </li>
+                        <li>
+                            <h5>Data de nascimento</h5>
+                            <h3>{Cookie.getJSON('userData').birthdate}</h3>
+                        </li>
+                        <li>
+                            <h5>Fone</h5>
+                            <h3>{Cookie.getJSON('userData').phone}</h3>
+                        </li>
+                        <li>
+                            <h5>Gênero</h5>
+                            <h3>{Cookie.getJSON('userData').gender === 'male' ? 'Masculino' : Cookie.getJSON('userData').gender === 'female' ? 'Feminino' : 'Outro'}</h3>
+                        </li>
+                    
+                    </ul>
+                </section> : <></>
+            }
             <form onSubmit={handleData}>
                 <ul className="signUp-form">
                     <li>
@@ -65,13 +82,13 @@ export default function EditProfileScreen(props) {
                         <label htmlFor="name">
                             Nome
                         </label>
-                        <input type="text" name="name" id="name" placeholder={Cookie.getJSON('userData').name} onChange={(e) => setName(e.target.value)} />
+                        <input type="text" name="name" id="name" placeholder={name} onChange={(e) => setName(e.target.value)} />
                     </li>
                     <li>
                         <label htmlFor="email">
                             Email
                         </label>
-                        <input type="email" name="email" id="email" placeholder={Cookie.getJSON('userData').email} onChange={(e) => setEmail(e.target.value)}/>
+                        <input type="email" name="email" id="email" placeholder={email} onChange={(e) => setEmail(e.target.value)}/>
                     </li>
                     <li>
                         <label htmlFor="birthdate">
@@ -83,7 +100,7 @@ export default function EditProfileScreen(props) {
                         <label htmlFor="phone">
                             Telefone
                         </label>
-                        <input type="tel" name="phone" id="phone" placeholder={Cookie.getJSON('userData').phone} onChange={(e) => setPhone(e.target.value)}/>
+                        <input type="tel" name="phone" id="phone" placeholder={phone} onChange={(e) => setPhone(e.target.value)}/>
                     </li>
                     <li className="inline-label">
                         <p>Gênero:</p>

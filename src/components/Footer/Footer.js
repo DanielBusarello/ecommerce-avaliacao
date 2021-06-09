@@ -30,8 +30,7 @@ function Footer() {
             <p>
                 Integrantes: 
                     <a href={"https://github.com/Kawzzy"}> Augusto Kalahary Souza Da Silva, </a>
-                    <a href={"https://github.com/DanielBusarello"}>Daniel Busarello, </a>
-                    <a href={"https://github.com/guilherme-g"}>Guilherme Viana Grasel </a> e
+                    <a href={"https://github.com/DanielBusarello"}>Daniel Busarello, </a> e
                     <a href={"https://github.com/Leeonardoo"}> Leonardo de Oliveira. </a>
             </p>
         </footer>
