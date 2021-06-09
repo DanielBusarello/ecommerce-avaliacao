@@ -6,7 +6,6 @@ import './SignIn.scss';
 
 export default function SignIn(props) {
     const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     
     const submitHandler = (e) => {
@@ -15,7 +14,7 @@ export default function SignIn(props) {
     }
 
     const authHandler = () => {
-        Cookie.set('login', { 'username': username, 'email': email, 'password': password });
+        Cookie.set('login', { 'username': username, 'password': password });
     }
 
     useEffect(() => {
@@ -33,15 +32,9 @@ export default function SignIn(props) {
                     </li>
                     <li>
                         <label htmlFor="name">
-                            Nome
+                            Nome de usuário
                         </label>
                         <input required type="name" name="name" id="name" onChange={(e) => setUsername(e.target.value)}/>
-                    </li>
-                    <li>
-                        <label htmlFor="email">
-                            Email
-                        </label>
-                        <input required type="email" name="email" id="email" onChange={(e) => setEmail(e.target.value)}/>
                     </li>
                     <li>
                         <Link to="/login_recovery">Esqueci meu login</Link>
