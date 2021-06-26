@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Cookie from 'js-cookie';
 
 import './SignIn.scss';
+import IsCapslockActive from "../IsCapslockActive/IsCapslockActive";
 
 export default function SignIn(props) {
     const [username, setUsername] = useState('');
@@ -41,10 +42,12 @@ export default function SignIn(props) {
                     </li>
 
                     <li>
-                        <label htmlFor="password">
-                            Senha
-                        </label>
-                        <input required type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
+                        <IsCapslockActive>
+                            <label htmlFor="password">
+                                Senha
+                            </label>
+                            <input required type="password" name="password" id="password" onChange={(e) => setPassword(e.target.value)}/>
+                        </IsCapslockActive>
                     </li>
                     <li>
                         <Link to="/password_recovery">Esqueci minha senha</Link>
