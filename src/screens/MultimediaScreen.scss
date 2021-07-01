@@ -1,0 +1,27 @@
+.multimedia-container {
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  margin: 3rem;
+  padding-bottom: 18vh;
+
+  ul {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 2rem 2rem 2rem;
+    background-color: rgba(255, 255, 255, .7);
+
+    li {
+      display: inline-block;
+      margin: .5rem;
+    }
+  }
+
+  #pdf-item {
+    iframe {
+      border: none;
+    }
+  }
+}
