@@ -5,14 +5,14 @@ import './EditProfileScreen.scss';
 
 export default function EditProfileScreen() {
     const history = useHistory()
-    
+
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [birthdate, setBirthdate] = useState("");
     const [phone, setPhone] = useState("");
     const [gender, setGender] = useState("");
     const [notification, setNotification] = useState(false);
-    
+
     const handleData = () => {
         Cookie.set("userData", {
             "name": name,
@@ -37,13 +37,13 @@ export default function EditProfileScreen() {
             setNotification(data.notification);
         }
         return () => {
-            
+
         }
     }, [])
 
     return (
         <div className="signUp-container">
-            {Cookie.getJSON('userData') ? 
+            {Cookie.getJSON('userData') ?
                 <section className="user-info">
                     <ul>
                         <li>
@@ -69,7 +69,7 @@ export default function EditProfileScreen() {
                             <h5>Gênero</h5>
                             <h3>{Cookie.getJSON('userData').gender === 'male' ? 'Masculino' : Cookie.getJSON('userData').gender === 'female' ? 'Feminino' : 'Outro'}</h3>
                         </li>
-                    
+
                     </ul>
                 </section> : <></>
             }
@@ -78,6 +78,15 @@ export default function EditProfileScreen() {
                     <li>
                         <h2>Editar perfil</h2>
                     </li>
+
+                    <li className="inline-label" id="theme-selector">
+                        <p>Tema:</p>
+                        <input type="radio" id="normal-theme" name="theme" value="normal-theme" onChange={(e) => {}}/>
+                        <label htmlFor="normal-theme">Normal</label><br/>
+                        <input type="radio" id="custom-theme" name="theme" value="custom-theme" onChange={(e) => {}}/>
+                        <label htmlFor="custom-theme">Custom</label><br/>
+                    </li>
+
                     <li>
                         <label htmlFor="name">
                             Nome
