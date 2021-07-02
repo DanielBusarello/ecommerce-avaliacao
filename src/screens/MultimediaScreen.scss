@@ -1,25 +1,36 @@
 .multimedia-container {
-  display: flex;
+  display: grid;
   justify-content: space-around;
   height: 100%;
   margin: 3rem;
-  padding-bottom: 18vh;
+  padding-bottom: 12vh;
 
-  ul {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
+  .content {
+    width: 1000px;
+    display: grid;
+    justify-content: space-around;
+    border-radius: 5px;
+    background-color: var(--color-background);
+  }
+
+  hr {
     width: 100%;
-    padding: 0 2rem 2rem 2rem;
-    background-color: rgba(255, 255, 255, .7);
+  }
 
-    li {
-      display: inline-block;
-      margin: .5rem;
-    }
+  .mid-content {
+    display: flex;
+    justify-content: inherit;
+    align-items: center;
+    padding-bottom: 45px;
+  }
+
+  #youtube-item {
+    height: 530px;
+    padding-top: 45px;
   }
 
   #pdf-item {
+    margin: auto;
     iframe {
       border: none;
     }
