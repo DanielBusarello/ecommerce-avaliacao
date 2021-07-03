@@ -9,9 +9,10 @@ import Cookie from 'js-cookie';
 
 const Navbar = () => {
     const  [click, setClick] = useState(false);
-    const [theme, setTheme] = useState("");
 
     const [username, setUsername] = useState('');
+
+    const [theme, setTheme] = useState("");
 
     useEffect(() => {
         if (Cookie.get('login')) {
