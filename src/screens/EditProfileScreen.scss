@@ -34,6 +34,15 @@
     }
   }
 
+  .themes {
+    flex-direction: row;
+    align-items: center;
+
+    input  {
+      margin: 0 10px 0 10px;
+    }
+  }
+
   .inline-label {
     display: block;
 

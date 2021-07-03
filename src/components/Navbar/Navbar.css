@@ -147,4 +147,8 @@
     border-bottom: 2px solid var(--color-font-primary);
 }
 
-
+.navbar-header.custom {
+    background: rgb(53, 79, 135);
+    font-family: Teko;
+    font-size: 1rem;
+}

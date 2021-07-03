@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300');
+
 footer {
     position: fixed;
     bottom: 0;
@@ -50,4 +52,10 @@ footer {
     width: 20px;
     height: 20px;
     margin: 5px;
+}
+
+.footer.custom {
+    background: rgb(53, 79, 135);
+    font-family: Teko;
+    font-size: 1.5rem;
 }

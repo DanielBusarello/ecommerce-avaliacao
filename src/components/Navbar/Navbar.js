@@ -9,6 +9,7 @@ import Cookie from 'js-cookie';
 
 const Navbar = () => {
     const  [click, setClick] = useState(false);
+    const [theme, setTheme] = useState("");
 
     const [username, setUsername] = useState('');
 
@@ -16,6 +17,13 @@ const Navbar = () => {
         if (Cookie.get('login')) {
             setUsername(Cookie.getJSON('login').username.split(" ")[0])
         }
+
+        if(Cookie.get('custom')) {  
+            setTheme("custom");
+        } else {
+            setTheme("");
+        }
+
         return () => {
             
         }
@@ -29,7 +37,7 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="navbar-header">
+        <nav className={`navbar-header ${theme}`}>
             <ul>
                 <li className="logo">
                     <Link to='/'>

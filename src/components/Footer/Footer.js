@@ -1,11 +1,24 @@
-import React from 'react';
+import Cookies from 'js-cookie';
+import React, { useEffect, useState } from 'react';
 import { FaWhatsapp, FaFacebookF, FaInstagram } from 'react-icons/fa';
 
 import './Footer.scss';
 
-function Footer() {
+function Footer(props) {
+    const [theme, setTheme] = useState("");
+
+    useEffect(() => {
+        if(Cookies.get('custom')) {  
+            setTheme("custom");
+        } else {
+            setTheme("");
+        }
+        return () => {
+        }
+    }, [])
+    
     return (
-        <footer>
+        <footer className={`footer ${theme}`}>
             <ul>
                 <li className="footer-item">
                     <a href={"https://www.whatsapp.com/?lang=pt_br"}>

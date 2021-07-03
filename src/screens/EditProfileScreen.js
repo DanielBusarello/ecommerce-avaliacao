@@ -26,6 +26,16 @@ export default function EditProfileScreen() {
         history.push('/');
     }
 
+    const handleTheme = e => {
+        if(e === "custom-theme") {
+            Cookie.set("custom");
+        } else {
+            Cookie.remove("custom");
+        }
+
+        window.location.reload();
+    }
+
     useEffect(() => {
         const data = Cookie.getJSON('userData');
         if (data) {
@@ -81,12 +91,11 @@ export default function EditProfileScreen() {
 
                     <li className="inline-label" id="theme-selector">
                         <p>Tema:</p>
-                        <input type="radio" id="normal-theme" name="theme" value="normal-theme" onChange={(e) => {}}/>
+                        <input type="radio" id="normal-theme" name="theme" value="normal-theme" onChange={(e) => handleTheme(e.target.value)}/>
                         <label htmlFor="normal-theme">Normal</label><br/>
-                        <input type="radio" id="custom-theme" name="theme" value="custom-theme" onChange={(e) => {}}/>
+                        <input type="radio" id="custom-theme" name="theme" value="custom-theme" onChange={(e) => handleTheme(e.target.value)}/>
                         <label htmlFor="custom-theme">Custom</label><br/>
                     </li>
-
                     <li>
                         <label htmlFor="name">
                             Nome

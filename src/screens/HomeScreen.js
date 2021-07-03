@@ -22,7 +22,7 @@ function HomeScreen() {
                 ]}
             />
             <InfoSection title="Sobre nós" 
-                darkTheme={true}
+                theme={"custom"}
                 side={"left"}
                 data={[
                     <p>Nossa empresa está no mercado há mais de 10 anos. </p>,
@@ -32,7 +32,6 @@ function HomeScreen() {
                 ]}
             />
             <InfoSection title="Contato" 
-                darkTheme={false} 
                 subtitle={"Envie-nos uma mensagem"}
                 side={"right"}
                 data={[

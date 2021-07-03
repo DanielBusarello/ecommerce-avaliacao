@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300');
+
 .info-content {
     position: relative;
     display: flex;
@@ -73,6 +75,17 @@
 
 .underline.dark {
     background: var(--color-font-primary);
+}
+
+.info-content.custom {
+    background: rgb(53, 79, 135);
+    color: var(--color-font-primary);
+    font-family: Teko;
+    font-size: 1.5rem;
+}
+
+.underline.custom {
+    background: #FFF;
 }
 
 .info-content-subtitle {
